@@ -1,0 +1,231 @@
+{% extends "base.html" %} {% block title %}Hotel California{% endblock %} {% block content%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.7.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+</html>
+
+<body>
+  <br>
+  <div class="container-fluid">
+    <div class="card-body border border-warning rounded">
+      <div class="row">
+        <div class="col-md">
+          <form action="{{ url_for('auth.index') }}" method="post">
+            <h4 class="lead">Check-In Date</h4>
+            <!-- <label for="start lead font-italic  display-1"><h4>Check-In Date:</h4></label> -->
+            <input type="date" id="checkIn" name="checkIn" value="2021-01-01" min="2021-01-01" max="2021-12-31">
+        </div>
+        <div class="col-md">
+          <h4 class="lead">Check-Out Date</h4>
+          <!-- <label for="start lead font-italic  display-1"><h4>Check-Out Date:</h4></label> -->
+          <input type="date" id="checkOut" name="checkOut" value="2021-01-08" min="2021-01-01" max="2021-12-31">
+        </div>
+
+        <div class="col-md">
+          <div class="dropdown">
+
+            <select class="btn btn-dark text-warning btn-large dropdown-toggle " type="submit" id="rType" name="rType"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:120px">
+              <option class="dropdown-item" type="submit" id="rType" name="rType" value="All"
+                style="color:rgb(255, 196, 0, 0.753)" ref="#">All Types</a>
+              <option class="dropdown-item" type="submit" id="rType" name="rType" value="Single"
+                style="color:rgb(255, 196, 0, 0.753)" ref="#">Single</a>
+              <option class="dropdown-item" type="submit" id="rType" name="rType" value="Double"
+                style="color:rgb(255, 196, 0, 0.753)" href="#">Double</a>
+              <option class="dropdown-item" type="submit" id="rType" name="rType" value="Family"
+                style="color:rgb(255, 196, 0, 0.753)" href="#">Family</a>
+            </select>
+
+          </div>
+        </div>
+
+        <div class="col-md">
+          <button type="submit" class="btn btn-dark text-warning ">Book Now</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br>
+  <section class="page-section" id="About">
+    <div class="text-align-left">
+      <h2 class="display-3">About</h2>
+      <p class="lead">
+        Hotel California is a 4-star hotel located at the heart of Dublin City. It's just minutes away
+        from the Guinness Storehouse and the National Museum of Ireland Decorative Arts & History. Hotel California
+        offers a warm and welcoming home-from-home atmosphere.
+        <br>
+        We have 50 en-suite rooms fitted with modern amenities such as a free high-speed internet. We also have a
+        restuarant
+        with some nation-renowned chefs to provide you some fine-dining experience.
+
+      </p>
+      <!-- </div> -->
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <img src="static/sngl.jpg" class="rounded float-left" width="500" height="345">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <img src="static/restaurant.jpg" class="rounded float-right" width="500" height="345">
+            </div>
+          </div>
+        </div>
+  </section>
+  <br>
+  <hr>
+  <!-- Services-->
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="text-align-left">
+        <br>
+        <h2 class="display-4">Services</h2>
+        <h2 class="lead">We provide a wide range of services from room-service, gym, dry-cleaning,
+          spa, swimming pool (with pool side bar)
+          for all our valued guest.</h2>
+      </div>
+      <form method="POST">
+        <input type="submit" class="btn btn-dark text-warning" id="Services" name="Services" value="View Services"
+          data-toggle="modal" data-target="#modalhotelCalifornia">
+
+      </form>
+
+
+      <div class="container"></div>
+    </div>
+  </section>
+  <br>
+  <hr>
+  <!---Rooms-->
+  <section class="section-page" id="Rooms">
+    <div class="container">
+      <div class="text-align-left">
+        <h3 class="display-4"> Rooms we offer</h3>
+        <h3 class="lead">
+          At Hotel California we offer a range of rooms from single, double, and even family rooms!
+        </h3>
+        <br>
+        <div class="card-deck">
+          <div class="card" style="width: 25rem;">
+            <div class="card-body border border-warning rounded">
+              <h5 class="display-4 card-title">Single</h5>
+              <img src="static/sngl.jpg" class="rounded float-center" width="300" height="200">
+              <p class="lead">Our bright and spacious single rooms are perfect for those who wants to get
+                away from the hustle and bustle of daily living.
+                Our single rooms are equipped with 1 double bed, suitable for 1 person.
+              </p>
+              <br>
+              <p>Room Features</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Free High-Speed Wifi</li>
+                <li class="list-group-item">Tea and Coffee facilities</li>
+                <li class="list-group-item">Heating and A/C</li>
+                <li class="list-group-item">In-Room safe</li>
+                <li class="list-group-item">TV</li>
+              </ul>
+              <p class="lead display-4">€60 Per Night</p>
+            </div>
+          </div>
+          <br>
+
+          <div class="card" style="width: 25rem;">
+            <div class="card-body border border-warning rounded">
+              <h5 class="display-4 card-title">Double</h5>
+              <img src="static/Double2.jpg" class="rounded float-center" width="300" height="200">
+              <p class="lead">
+                Our double rooms provide comfort and relaxation.
+                It is fitted with a balcony overlooking the city of Dublin which will leave you
+                breatheless and undoubtedly enhance your hotel experience.
+              </p>
+              <br>
+              <p>Room Features</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Free High-Speed Wifi</li>
+                <li class="list-group-item">Tea and Coffee facilites</li>
+                <li class="list-group-item">Heating and A/C</li>
+                <li class="list-group-item">In-Room safe</li>
+                <li class="list-group-item">TV</li>
+              </ul>
+              <p class="lead display-4">€100 Per Night</p>
+            </div>
+          </div>
+          <br>
+
+          <div class="card" style="width: 25rem;">
+            <div class="card-body border border-warning rounded">
+              <h5 class="display-4 card-title">Family</h5>
+              <img src="static/FamilyR.jpg" class="rounded float-center" width="300" height="200">
+              <p class="lead">Our family rooms consists of two double beds and a single bed,
+                it is fully furnished, ideal for a family of 4 or more. Just ask our friendly 24-hours customer service
+                extra bedding (if needs be).
+              </p>
+              <br>
+              <p>Room Features</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Free High-Speed Wifi</li>
+                <li class="list-group-item">Tea and Coffee facilities</li>
+                <li class="list-group-item">Heating and A/C</li>
+                <li class="list-group-item">In-Room safe</li>
+                <li class="list-group-item">TV</li>
+              </ul>
+              <p class="lead display-4">€200 Per Night</p>
+            </div>
+          </div>
+        </div>
+        <br>
+  </section>
+  <!-- Gallery-->
+  <hr>
+  <div class="container">
+    <h2 class="display-3 text-center">Gallery</h2>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 mb-4 mb-lg-4">
+        <img src="static/family.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+
+        <img src="static/double2.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+      </div>
+
+      <div class="col-lg-4 mb-4 mb-lg-4">
+        <img src="static/restaurant.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+
+        <img src="static/gym.jpg" class="w-100 shadow-1-strong rounded mb-5" alt="" />
+      </div>
+
+      <div class="col-lg-4 mb-4 mb-lg-4">
+        <img src="static/sngl.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
+
+        <img src="static/FamilyR.jpg" class="w-100 shadow-1-strong rounded mb-6" alt="" />
+      </div>
+    </div>
+  </div>
+  <!-- Gallery -->
+  <!-- Footer -->
+  <!-- <footer class="page-footer bg-warning">
+  <div class="footer-copyright text-center py-3">
+    <p>&copy; Copyright
+      <a href="#">HotelCalifornia.com</a>
+      <p>Designed By Mark Mc Guinness, Tiernan Mac Donald, Niall De Barra, Kevin Mc Monagle and Bryan Kim Flores</p>
+    </p>
+  </div>
+</footer> -->
+</body>
+
+</html>
+{% endblock %}

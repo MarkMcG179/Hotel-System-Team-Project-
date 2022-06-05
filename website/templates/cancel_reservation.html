@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Cancel Reservation{% endblock %} {% block content %}
+
+  <h5 class="display-4 card-title text-center">Cancel Reservations</h5>
+
+    <div class="card-deck">
+      <div class="card" style="width: 25rem;">
+        <div class="card-body border border-warning rounded">
+          <h5 class="display-4 card-title">Reservation To Be Deleted:</h5>
+          <p class="card-text"><ul>
+            <li><h3 class="lead text-dark">Name:</h3> {{customer.firstName}} {{customer.lastName}}</li>
+            <li><h2 class="lead text-dark">Room Number:</h2>{{room}} </li>
+            <li><h2 class="lead text-dark">Check In:</h2> {{checkIn}}</li>
+            <li><h2 class="lead text-dark">Check Out:</h2> {{checkOut}}</li>
+          </ul></p>
+      <hr>
+      <br>
+      <p class="lead font-italic">Delete Your reservation here: </p>
+      <form method="POST">      
+        <input type="submit" class="btn btn-dark text-warning" id="Delete Reservation" name="Delete Reservation" value="Delete reservation" 
+          data-toggle="modal" data-target="#modalhotelCalifornia">
+        
+      </form>
+      </div>
+    </div>
+    </div>
+      
+      
+
+    {% endblock %}

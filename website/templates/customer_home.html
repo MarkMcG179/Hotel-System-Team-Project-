@@ -1,0 +1,119 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+  %}
+<!Doctype html>
+<html lang="en">
+  <head>
+    <!---- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <!--Customer Login Home Page-->
+    <div class="text-center">
+    <h2 class="display-4">Customer Login Home</h1>
+    </div>
+    <br>
+
+    <!--Customer Reservation Made and Customer Details-->
+    <div class="card-deck">
+    <div class="card" style="width: 25rem;">
+      <div class="card-body border border-warning rounded">
+        <h5 class="display-4 card-title">Reservations Made</h5>
+        <p class="card-text"><ul>
+          <li><h3 class="lead text-dark">Name:</h3> {{customer.firstName}} {{customer.lastName}}</li>
+          <li><h2 class="lead text-dark">Room Number:</h2>{{room}} </li>
+          <li><h2 class="lead text-dark">Check In:</h2> {{checkIn}}</li>
+          <li><h2 class="lead text-dark">Check Out:</h2> {{checkOut}}</li>
+    <br>
+    <hr>
+    <form method="POST">
+      <div class="button">
+      <p class="lead">Cancel your reservation here:</p>
+     <a href="/cancel_reservation">
+    <input type="submit" id="Cancel Reservation" name="Cancel Reservation" value="Cancel Reservation"  class="btn btn-dark text-warning vertical-right" data-toggle="cancel" data-target="cancelReservation">
+            </a>
+             </div>
+                </form>
+                    </a> 
+                       </ul></p>
+                      </div>
+                    </div>
+                    <br>
+    
+    <div class="card" style="width: 25rem;">
+      <div class="card-body border border-warning rounded align-text-bottom">
+        <h5 class="display-4 card-title">Customer Details</h5>
+        <p class="card-text lead font-italic"><ul>
+          <li><h2 class="lead text-dark font-italic">First Name:</h2> {{customer.firstName}}</li>
+          <li><h2 class="lead text-dark font-italic">Surname:</h2> {{customer.lastName}}</li>
+          <li><h2 class="lead text-dark font-italic">Phone Number:</h2> {{customer.phoneNumber}}</li>
+          <li><h2 class="lead text-dark font-italic">Email:</h2> {{customer.emailAddress}}</li> 
+          <br>
+          <hr>
+          <form method="POST">
+            <div class="button">
+            <p class="lead">Delete your account here:</p>          
+            <input type="submit" id="Delete Account" name="Delete Account" value="Delete Account"  class="btn btn-dark text-warning vertical-right" data-toggle="delete" data-target="Delete Account">
+            </form>
+          </ul></p>
+        
+      </div>
+    </div>
+  </div>
+  <hr>
+  <br>
+  <!--modal for checking out and total billing-->
+  <!-- Button which will activate the  modal -->
+  <p class="lead font-italic">If you are checking out then press the Check Out button below.</p>
+  <form method="POST"> 
+    <button type="button" class="btn btn-dark text-warning" data-toggle="modal" data-target="#modalhotelCalifornia">
+    Check Out
+    </button>
+  </form>
+<div class="modal fade" id="modalhotelCalifornia" tabindex="-1" role="dialog" aria-labelledby="modalhotelCalifornia" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-warning font-italic-dark">
+        <h5 class="modal-title " id="modalhotelCalifornia">Hotel California Invoice</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Nights Stayed: {{ nights }} </th> 
+              <th scope="col">Room Cost: £{{ roomCost }} </th> 
+              <th scope="col">Total Cost: £{{ bill }} </th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <form method="POST">
+        <div class="modal-footer bg-warning">
+          
+          <input type="submit" class="btn btn-dark text-warning" id="Check Out of Hotel" name="Check Out of Hotel" value="Check Out of Hotel" 
+          data-toggle="modal" data-target="#modalhotelCalifornia">
+          
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+    <!-----Optional JavaScript---> 
+    <!---jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+{% endblock %}
